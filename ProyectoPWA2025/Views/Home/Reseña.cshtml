@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Reseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form>
+    <div class="mb-3">
+        <label class="text-white form-label">Tu nombre completo: </label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="text-white form-label">Contanos tu experiencia!</label>
+        <textarea class="form-control" rows="4"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="text-white form-label">¿Donde queres que hagamos la proxima fecha?</label>
+        <select class="form-select">
+            <option selected>Seleccionar</option>
+            <option value="1">Ciudad Autonoma de Buenos Aires</option>
+            <option value="2">Rosario</option>
+            <option value="3">Cordoba</option>
+            <option value="4">Mendoza</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="text-white form-label">¿Que nota nos das?</label>
+        <input type="number" class="form-control" min="0" max="10"/>
+    </div>
+    <div>
+        <button class="btn btn-secondary btn-lg text-bg-dark border-3">Enviar</button>
+        <button class="btn btn-danger btn-lg text-bg-dark border-3">Cancelar</button>
+    </div>
+
+</form>
+
+
+
