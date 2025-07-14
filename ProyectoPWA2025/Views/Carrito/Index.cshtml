@@ -3,10 +3,10 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form asp-action="FiltrarFecha" asp-controller="Carrito" method="get">
-    <input type="date" name="desde" class="form-control"/>
-    <input type="date" name="hasta" class="form-control" />
-    <button type="submit" class="btn btn-primary">Buscar</button>
+<form asp-action="FiltrarFecha" asp-controller="Carrito" method="get" class="d-flex align-items-center justify-content-start gap-2 mb-3">
+    <input type="date" name="desde" class="form-control form-control-sm" style="width: 150px;" />
+    <input type="date" name="hasta" class="form-control form-control-sm" style="width: 150px;"  />
+    <button type="submit" class="btn btn-secondary">Buscar</button>
 </form>
 <table class="table table-striped">
     <tr>
