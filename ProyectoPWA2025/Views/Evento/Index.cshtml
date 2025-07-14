@@ -1,0 +1,46 @@
+﻿@model List<ProyectoPWA2025.DAL.Evento>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4>Lista de Eventos</h4>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-secondary" asp-action="Crear" asp-controller="Evento" asp-route-IdEvento="0">Crear Evento</a>
+    </div>
+<table class="table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Foto</th>
+                <th>Precio</th>
+                <th>Cupo</th>
+            </tr>
+        </thead>
+<tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+            <td>@item.Id</td>
+            <td>@item.Nombre</td>
+            <td>@item.Fecha</td>
+            <td>
+                        <img src="~/images/@item.Foto" class="rounded-circle" style="width:80px; height:80px" asp-append-version="true" />
+            </td>
+            <td>@item.Precio</td>
+            <td>@item.Cupo</td>
+            <td>
+                        <a class="btn btn-secondary" asp-action="Actualizar" asp-controller="Evento" asp-route-IdEvento=@item.Id>Editar</a>
+                        <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Evento" asp-route-IdEvento=@item.Id >Eliminar</a>
+
+            </td>
+               </tr>
+            }
+        </tbody>
+</table>
+

@@ -2,7 +2,61 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="seccion-hero">
+    <div class="hero-content">
+        <img src="/images/LogoEXT.png" alt="Logo" />
+        <p>
+            Cientificamente comprobado, salir, reir y conectar con otros puede
+            extender tu vida. ¿Estas listo para EXTenderte?
+        </p>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="boton" type="button" asp-action="Index" asp-controller="Evento">EVENTOS</a>
+        </div>
+    </div>
+</div>
+<hr style="color:azure" />
+<div class="seccion-about">
+    <div class="about-text">
+        <h2> CONCEPT </h2>
+        <p>
+            FUNDADO POR GIAN SANZ, EN SU RECORRIDO DEDICADO A LA INDUSTRIA DE LA PRODUCCION Y EL AUDIO EN
+            LA CIUDAD AUTONOMA DE BUENOS AIRES, EXTENDED SIGNIFICA CREER
+            FERVIENTEMENTE EN LA POSIBILIDAD DE ENCONTRAR (ESO) QUE NOS DA SENTIDO.
+            NUESTRO LENGUAJE ES LA MUSICA ¿CUAL ES EL SUYO?
+        </p>
+    </div>
+    <div class="about-image">
+        <img src="/images/Concept.jpeg" alt="concepto" />
+    </div>
+</div>
+<hr style="color:azure" />
+<div class="seccion-about">
+    <div class="about-image">
+        <img src="/images/OURFOCUS.jpeg" alt="Our Focus" />
+    </div>
+    <div class="about-text">
+        <h2>OUR FOCUS</h2>
+        <p>
+            LA RAZÓN DE SER RADICA EN LA IMPORTANCIA QUE TIENE BUSCAR
+            Y PERSEGUIR LO QUE NOS APASIONA. ESTO NOS LLEVA A LOCALIZAR VERSIONES
+            MAS PLENAS Y PROFESIONALES DE NOSOTROS MISMOS.
+            SOMOS UN CONCEPTO QUE PRIORIZA LA PRODUCCIÓN Y LA CONEXIÓN CON EL PÚBLICO
+            EN TODOS SUS ASPECTOS, OFRECIENDO UNA EXPERIENCIA EXCLUSIVA Y COMPLETA EN CADA ÁREA.
+            UN LUGAR DONDE SE COMPARTE LA MÁXIMA EXPRESIÓN DE LOS ARTISTAS, SUS EXPERIENCIAS
+            Y MUCHO MAS...
+        </p>
+    </div>
+</div>
+<hr style="color:azure" />
+<div class="seccion-resena">
+    <h2 class="text-capitalize">¡Tu experiencia cuenta! </h2>
+    <p>
+        ¿Vos ya te animaste a EXTender tu vida con nosotros?
+        Tu opinion es super valiosa para seguir creando momentos inolvidables.
+        Contanos que te parecio la ultima fecha. Queremos escucharte y conocer tu perspectiva.
+        ¡Ademas nos ayuda mucho saber donde te gustaria que hagamos la proxima fecha!
+        Dejanos tu reseña y se parte activa de esta experiencia que nos extiende a todos!
+    </p>
+    <button onclick="location.href='@Url.Action("Resena", "Home")'">RESEÑA</button>
+
 </div>
