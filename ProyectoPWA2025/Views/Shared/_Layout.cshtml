@@ -29,6 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Reseña">Reseña</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Carrito" asp-action="Index">Comprar
+                            <i style="color:gray;font-size:20px" class="bi bi-cart-fill"></i>
+                            @TempData["Contar"]
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
