@@ -44,8 +44,6 @@ public partial class WebExtendedContext : DbContext
         modelBuilder.Entity<Evento>(entity =>
         {
             entity.ToTable("Evento");
-
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Descripcion).IsUnicode(false);
             entity.Property(e => e.Foto).IsUnicode(false);
             entity.Property(e => e.Nombre)

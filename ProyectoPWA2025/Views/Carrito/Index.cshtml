@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProyectoPWA2025.DAL.Evento>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-action="FiltrarFecha" asp-controller="Carrito" method="get">
+    <input type="date" name="desde" class="form-control"/>
+    <input type="date" name="hasta" class="form-control" />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+<table class="table table-striped">
+    <tr>
+
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Fecha</th>
+        <th>Cupo</th>
+        <th>-</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Nombre</td>
+            <td><img src="~/images/@item.Foto" width="120" /></td>
+            <td>@item.Descripcion</td>
+            <td>@((item.Precio).ToString("C2", new System.Globalization.CultureInfo("es-AR")))</td>
+            <td>@item.Fecha</td>
+            <td>@item.Cupo</td>
+            <td>
+                <a class="btn btn-primary" asp-action="Cart" asp-controller="Carrito" asp-route-id=@item.Id>Comprar</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+

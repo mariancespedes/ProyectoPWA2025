@@ -51,9 +51,9 @@ namespace ProyectoPWA2025.Controllers
             int cantidad = items.Count();
             return cantidad;
         }
-        private int Exist(List<Carrito> cart, string id)
+        private int Exist(List<Carrito> cart, int id)
         {
-            for (int i = 0; i < cart.Count; i++) 
+            for (int i = 0; i < cart.Count; i++)
             {
                 if (cart[i].IdEvento.Equals(id))
                 {
@@ -63,7 +63,7 @@ namespace ProyectoPWA2025.Controllers
             return -1;
         }
         [HttpGet]
-        public IActionResult Cart(string id)
+        public IActionResult Cart(int id)
         {
             var prod = _CaContext.Eventos.Find(id);
             var cart = ProyectoPWA2025.Helpers.SessionHelper.GetObjectFromJson<List<Carrito>>(HttpContext.Session, "cart");
@@ -101,14 +101,20 @@ namespace ProyectoPWA2025.Controllers
             return RedirectToAction("Index", "Carrito");
         }
         [HttpGet]
-        public IActionResult Quitar(string id)
+        public IActionResult Quitar(int id)
         {
             var cart = SessionHelper.GetObjectFromJson<List<Carrito>>(HttpContext.Session, "cart");
             int index = Exist(cart, id);
             cart.RemoveAt(index);
             TempData["Contar"] = ContarItems(cart);
             SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
-            return RedirectToAction("Index", "Carrito");
+            return RedirectToAction("Carrito", "Carrito");
+        }
+        public IActionResult FiltrarFecha(DateOnly desde, DateOnly hasta)
+        {
+            var eventos= _CaContext.Eventos.Where(e=>e.Fecha >= desde && e.Fecha <= hasta)
+                .ToList();
+            return View("Index",eventos);
         }
     }
 }

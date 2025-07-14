@@ -1,0 +1,39 @@
+﻿@using System.Globalization;
+@model IEnumerable<ProyectoPWA2025.DAL.Carrito>
+@{
+    ViewData["Title"] = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-striped">
+    <tr>
+
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Descripcion</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>-</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+      <tr>
+            <td>@item.IdEventoNavigation.Nombre</td>
+            <td><img src="~/images/@item.IdEventoNavigation.Foto" width="120" /></td>
+            <td>@item.IdEventoNavigation.Descripcion</td>
+            <td>@item.IdEventoNavigation.Fecha</td>
+            <td>@item.Cantidad</td>
+            <td>@((item.IdEventoNavigation.Precio* item.Cantidad).ToString("C2", new System.Globalization.CultureInfo("es-AR")))</td>
+            <td>
+                <a class="btn btn-danger" asp-action="Quitar" asp-controller="Carrito" asp-route-id=@item.Id>Eliminar</a>
+            </td>
+      </tr>  
+    }
+</table>
+<div class="align-items-end">
+    <label class="form-label text-white fw-bold">Total: </label>
+    <label class="form-label  text-white fw-bold"> @Model.Sum(i => i.Cantidad * i.IdEventoNavigation.Precio).ToString("C2", new CultureInfo("es-AR"))</label>
+</div>
+<br />
+<a class="btn btn-secondary"asp-action="Index"asp-controller="Carrito">Volver</a>
+
